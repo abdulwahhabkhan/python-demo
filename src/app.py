@@ -7,8 +7,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 app.secret_key = "iweuwrwoerwioureowruw324234"
 
-notes = []
-
 
 @app.route("/")
 def index():
