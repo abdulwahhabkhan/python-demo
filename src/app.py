@@ -1,9 +1,13 @@
 import datetime
 
-
-from flask import Flask, render_template
+from flask import Flask, render_template, request, session
 
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+app.secret_key = "iweuwrwoerwioureowruw324234"
+
+notes = []
 
 
 @app.route("/")
@@ -28,3 +32,15 @@ def new_year():
 def exmaple_loop():
     names = {"Abdul", "Wahhab", "Khan"}
     return render_template("loops.html", names=names)
+
+
+@app.route('/notes', methods=["POST", "GET"])
+def notes_view():
+    if session.get("notes") is None:
+        session['notes'] = []
+
+    if request.method == "POST":
+        session['notes'].append(request.form.get('note'))
+
+    return render_template("notes.html", notes=session['notes'])
+

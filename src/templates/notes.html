@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Form POST Example
+{% endblock %}
+
+{% block body %}
+
+<ul>
+    {% for note in notes %}
+        <li>{{ note }}</li>
+    {% endfor %}
+</ul>
+
+
+<form action="{{ url_for('notes_view') }}" method="POST">
+
+    <input type="text" id="note" name="note" value="" placeholder="Enter Note">
+    <button type="submit">Add Note</button>
+
+</form>
+
+{% endblock %}
