@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Website</title>
-</head>
-<body>
-    <h1>hello, world from html</h1>
-    <ul>
-        <li>
-            <a href="{{ url_for('exmaple_loop') }}">Loops</a>
-        </li>
-    </ul>
+{% extends "layout.html" %}
 
-</body>
-</html>
+{% block heading %}
+    Welcome to Python Flask
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}

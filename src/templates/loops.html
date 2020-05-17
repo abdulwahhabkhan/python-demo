@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Loop Example</title>
-</head>
-<body>
-    <h1>Names List:</h1>
+{% extends "layout.html" %}
+
+{% block heading %}
+    Loop Example
+{% endblock %}
+
+{% block body %}
+<h3>Names List:</h3>
     <ul>
         {% for name in names %}
             <li>{{ name }}</li>
         {% endfor %}
     </ul>
-
-</body>
-</html>
+{% endblock %}

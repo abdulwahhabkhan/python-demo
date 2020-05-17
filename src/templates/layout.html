@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Application</title>
+</head>
+<body>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('exmaple_loop') }}">Loops</a></li>
+        <li><a href="{{ url_for('new_year') }}">Is it New Year</a></li>
+
+    </ul>
+    <h1>{% block heading %} {% endblock %}</h1>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
