@@ -22,3 +22,9 @@ def new_year():
     now = datetime.datetime.now()
     new_year = now.month == 1 and now.day == 1
     return render_template("new-year.html", new_year=new_year)
+
+
+@app.route("/loop")
+def exmaple_loop():
+    names = {"Abdul", "Wahhab", "Khan"}
+    return render_template("loops.html", names=names)
