@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Flights List
+{% endblock %}
+
+{% block body %}
+
+<ul>
+    {% for flight in flights %}
+        <li>{{ flight }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

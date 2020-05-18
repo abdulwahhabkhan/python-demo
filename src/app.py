@@ -1,11 +1,18 @@
+import os
 import datetime
 
 from flask import Flask, render_template, request, session
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 app.secret_key = "iweuwrwoerwioureowruw324234"
+#engine = create_engine(os.getenv("FLASK_DB_URL"))
+engine = create_engine("mysql+pymysql://root:@localhost/flask_db")
+db = scoped_session(sessionmaker(bind=engine))
 
 
 @app.route("/")
@@ -42,3 +49,7 @@ def notes_view():
 
     return render_template("notes.html", notes=session['notes'])
 
+@app.route("/flights")
+def flights():
+    flights = db.execute("select * FROM flights").fetchall()
+    return render_template("flights.html", flights=flights)
